@@ -1,2 +1,3 @@
 # Lin_PRO
-HW1: +HW1.png
+HW1: 1-Where Linux Starts
+HW2: 2-kernel_update
