@@ -1,0 +1,39 @@
+MACHINES = {
+  :"debian-mdadm" => {
+              :box_name => "ubuntu/jammy64",
+              :box_version => "1.0.0",
+              :cpus => 2,
+              :memory => 2048,
+            }
+}
+
+ENV['VAGRANT_SERVER_URL'] = 'http://vagrant.elab.pro'
+Vagrant.configure("2") do |config|
+  MACHINES.each do |boxname, boxconfig|
+    config.vm.synced_folder ".", "/vagrant", disabled: true
+    config.vm.define boxname do |box|
+      box.vm.box = boxconfig[:box_name]
+      box.vm.box_version = boxconfig[:box_version]
+      box.vm.host_name = boxname.to_s
+      box.vm.provider "virtualbox" do |v|
+        v.memory = boxconfig[:memory]
+        v.cpus = boxconfig[:cpus]
+      end
+      (0..3).each do |i|
+        box.vm.disk :disk, size: "1GB", name: "disk-#{i}"
+      end
+      box.vm.provision "shell", inline: <<-SHELL
+        sudo -i
+        apt update &> /dev/null 
+        apt install -y mdadm &> /dev/null
+        mdadm --create --verbose /dev/md0 --level=5 --raid-devices=4 /dev/sdb /dev/sdc /dev/sdd /dev/sde &> /dev/null
+        mkfs.ext4 /dev/md0 &> /dev/null
+        mkdir /mnt/raid-5
+        echo "UUID=$(blkid -s UUID -o value /dev/md0) /mnt/raid-5 ext4 defaults 0 0" >> /etc/fstab
+        systemctl daemon-reload
+        mount -a &> /dev/null
+        df -h
+      SHELL
+    end
+  end
+end
