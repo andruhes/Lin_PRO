@@ -9,3 +9,5 @@ HW5: 5. Disk subsystem. Working with mdadm
 ---
 HW6-7: 6-7. File Systems and LVM
 ---
+HW8: 8. ZFS
+---
