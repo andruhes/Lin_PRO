@@ -11,3 +11,5 @@ HW6-7: 6-7. File Systems and LVM
 ---
 HW8: 8. ZFS
 ---
+HW8: 9. NFS, FUSE
+---
