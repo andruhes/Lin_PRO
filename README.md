@@ -17,3 +17,5 @@ HW10: 10. Package management. Software distribution
 ---
 HW11: 11. System loading
 ---
+HW12: 12. System initialization. Systemd
+---
