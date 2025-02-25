@@ -19,3 +19,5 @@ HW11: 11. System loading
 ---
 HW12: 12. System initialization. Systemd
 ---
+HW13: 13. Bash
+---
