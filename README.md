@@ -27,3 +27,5 @@ HW18: 18. SELinux - When Everything Is Forbidden
 ---
 HW22: 22. Prometheus
 ---
+HW24: 24. Users and Groups. Authorization and Authentication
+---
