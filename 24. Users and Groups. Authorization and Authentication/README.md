@@ -169,16 +169,3 @@ Sorry, user otusadm is not allowed to execute '/bin/systemctl stop docker' as ro
 
 ```
 
----
-
-Информационные материлы по заданию:    
-
-[Презентация](docs/AuthorizationAuthentication.pdf)    
-[Linux_PAM](docs/Linux_PAM_SAG.pdf)    
-[Практика](docs/practic.pdf)
-
-[Основы работы с пользователями](https://firstvds.ru/technology/linux-user-management)
-pam_script Linux man page - https://linux.die.net/man/5/pam_script      
-pam_time PAM module for time control access - Linux Man Pages - https://www.systutorials.com/docs/linux/man/8-pam_time/  
-Как работает PAM (Pluggable Authentication Modules) (pam auth linux security howto) - https://www.opennet.ru/base/net/pam_linux.txt.html   
-What is PAM? - https://medium.com/information-and-technology/wtf-is-pam-99a16c80ac57    
