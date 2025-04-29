@@ -29,3 +29,5 @@ HW22: 22. Prometheus
 ---
 HW24: 24. Users and Groups. Authorization and Authentication
 ---
+HW25: 25. Basics of Log Collection and Storage
+---
