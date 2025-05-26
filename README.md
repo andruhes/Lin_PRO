@@ -34,3 +34,5 @@ HW25: 25. Basics of Log Collection and Storage
 ---
 HW27: 27. Backup
 ---
+HW28: 28. Network architecture
+---
