@@ -36,3 +36,5 @@ HW27: 27. Backup
 ---
 HW28: 28. Network architecture
 ---
+HW33: 33. Static and dynamic routing, OSPF
+---
