@@ -42,3 +42,5 @@ HW35: 35. Bridges, Tunnels and VPNs
 ---
 HW36: 36. DNS - setup and maintenance
 ---
+HW37: 37. Network packets. VLANs. LACP
+---
