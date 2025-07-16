@@ -40,3 +40,5 @@ HW33: 33. Static and dynamic routing, OSPF
 ---
 HW35: 35. Bridges, Tunnels and VPNs
 ---
+HW36: 36. DNS - setup and maintenance
+---
