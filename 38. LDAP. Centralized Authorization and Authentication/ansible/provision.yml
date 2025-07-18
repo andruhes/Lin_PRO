@@ -1,0 +1,11 @@
+- name: Deploy FreeIPA server
+  hosts: ipa.otus.lan
+  become: true
+  roles:
+    - freeipa_server
+
+- name: Configure FreeIPA clients
+  hosts: client1.otus.lan, client2.otus.lan
+  become: true
+  roles:
+    - freeipa_client

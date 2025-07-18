@@ -1,0 +1,45 @@
+---
+- name: Set hostname
+  ansible.builtin.hostname:
+    use: systemd
+    name: "{{ inventory_hostname }}"
+
+- name: Enable and configure firewalld for LDAP/Kerberos
+  ansible.builtin.firewalld:
+    service: "{{ item }}"
+    state: enabled
+    permanent: true
+    immediate: true
+  loop:
+    - ldap
+    - kerberos
+  notify: Restart firewalld
+
+- name: Configure SELinux for LDAP client
+  ansible.posix.selinux:
+    policy: targeted
+    state: enforcing
+
+- name: Set /etc/hosts
+  ansible.builtin.template:
+    src: templates/hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install required packages
+  ansible.builtin.include_tasks: install_pkgs.yml
+
+- name: Join client to FreeIPA domain
+  ansible.builtin.include_tasks: freeipa_client_install.yml
+
+- name: Configure SSH to use LDAP keys
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: |
+      AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
+      AuthorizedKeysCommandUser nobody
+    regexp: "^AuthorizedKeysCommand"
+    state: present
+  notify: Restart sshd

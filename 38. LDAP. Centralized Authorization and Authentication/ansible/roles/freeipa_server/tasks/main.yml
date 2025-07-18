@@ -1,0 +1,65 @@
+---
+- name: Set hostname
+  ansible.builtin.hostname:
+    use: systemd
+    name: "{{ inventory_hostname }}"
+
+- name: Set time zone
+  ansible.builtin.copy:
+    remote_src: True
+    src: /usr/share/zoneinfo/Europe/Moscow
+    dest: /etc/localtime
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart service cron
+
+- name: Enable and configure firewalld for FreeIPA
+  ansible.builtin.firewalld:
+    service: "{{ item }}"
+    state: enabled
+    permanent: true
+    immediate: true
+  loop:
+    - ldap
+    - ldaps
+    - kerberos
+    - dns
+    - http
+    - https
+  notify: Restart firewalld
+
+- name: Configure SELinux in enforcing mode (with LDAP exceptions)
+  ansible.posix.selinux:
+    policy: targeted
+    state: enforcing
+
+- name: Set /etc/hosts
+  ansible.builtin.template:
+    src: templates/hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install required packages
+  ansible.builtin.include_tasks: install_pkgs.yml
+
+- name: Install and configure FreeIPA server
+  ansible.builtin.include_tasks: freeipa_server_install.yml
+
+- name: Add demo user with SSH key
+  ansible.builtin.command: |
+    ipa user-add otus-user \
+      --first=Otus \
+      --last=User \
+      --sshpubkey="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ..."  # Замените на реальный ключ
+  when: freeipa_server_setup_users | default(true)
+
+- name: Configure SSSD for SSH key auth
+  ansible.builtin.lineinfile:
+    path: /etc/sssd/sssd.conf
+    line: "ldap_user_ssh_public_key = sshPublicKey"
+    regexp: "^ldap_user_ssh_public_key"
+    state: present
+  notify: Restart sssd
