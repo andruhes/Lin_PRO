@@ -11,6 +11,46 @@
 | pg2       | PostgreSQL Server (Реплика/Backup)      | - eth0: 10.0.0.22 (Internal)                                    |
 | grafana   | Grafana, Prometheus, Loki, Alerting     | - eth0: 192.168.0.101 (Bridged)<br>- eth1: 10.0.0.31 (Internal) |
 
+
+
+Структура проекта:
+ 
+ 
+├── Vagrantfile
+├── ansible/
+│   ├── roles/
+│   │   ├── superset1/
+│   │   │   └── tasks/
+│   │   │       └── main.yml
+│   │   ├── superset2/
+│   │   │   └── tasks/
+│   │   │       └── main.yml
+│   │   └── pg1/
+│   │       └── templates/
+│   │           └── postgresql.conf.j2
+│   ├── restart_prometheus_node_exporter.yml
+│   └── other_scripts.sh
+├── configs/
+│   ├── nginx/
+│   ├── prometheus/
+│   ├── grafana/
+│   └── alertmanager/
+└── README.md
+ 
+ 
+В этой структуре:
+
+Vagrantfile - файл для настройки виртуальной среды.
+ansible/ - директория с Ansible ролями и задачами.
+roles/ - подкаталог для хранения различных ролей Ansible, таких как superset1, superset2 и pg1.
+tasks/ - подкаталог, содержащий задачи для каждой роли.
+templates/ - подкаталог для шаблонов конфигурационных файлов, таких как postgresql.conf.j2.
+configs/ - директория для хранения конфигураций различных сервисов, таких как Nginx, Prometheus и другие.
+README.md - файл с описанием проекта.
+Эта структура поможет организовать проект и упростить его поддержку и развитие.
+
+---
+
 ![schema.png](schema.png)
 
 Для развертывание тестового стенда на хостовой машине использовалось ПО:
