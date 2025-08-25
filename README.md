@@ -44,3 +44,13 @@ HW36: 36. DNS - setup and maintenance
 ---
 HW37: 37. Network packets. VLANs. LACP
 ---
+HW38: 38. LDAP. Centralized Authorization and Authentication
+---
+HW42: 42. Dynamic Web
+---
+HW44: 44. MySQL_replication
+---
+HW46: 46. Postgres Backup + Replication
+---
+Final project
+
