@@ -16,26 +16,26 @@
 Структура проекта:
  
  
-├── Vagrantfile
-├── ansible/
-│   ├── roles/
-│   │   ├── superset1/
-│   │   │   └── tasks/
-│   │   │       └── main.yml
-│   │   ├── superset2/
-│   │   │   └── tasks/
-│   │   │       └── main.yml
-│   │   └── pg1/
-│   │       └── templates/
-│   │           └── postgresql.conf.j2
-│   ├── restart_prometheus_node_exporter.yml
-│   └── other_scripts.sh
-├── configs/
-│   ├── nginx/
-│   ├── prometheus/
-│   ├── grafana/
-│   └── alertmanager/
-└── README.md
+ ├── Vagrantfile  
+ ├── ansible/  
+ │   ├── roles/  
+ │   │   ├── superset1/  
+ │   │   │   └── tasks/  
+ │   │   │       └── main.yml  
+ │   │   ├── superset2/  
+ │   │   │   └── tasks/  
+ │   │   │       └── main.yml  
+ │   │   └── pg1/  
+ │   │       └── templates/  
+ │   │           └── postgresql.conf.j2  
+ │   ├── restart_prometheus_node_exporter.yml  
+ │   └── other_scripts.sh  
+ ├── configs/  
+ │   ├── nginx/  
+ │   ├── prometheus/  
+ │   ├── grafana/  
+ │   └── alertmanager/ 
+ └── README.md  
  
  
 В этой структуре:
