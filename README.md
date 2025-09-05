@@ -54,3 +54,4 @@ HW46: 46. Postgres Backup + Replication
 ---
 Final project
 
+https://github.com/andruhes/Lin_PRO/blob/main/linpro.jpg
