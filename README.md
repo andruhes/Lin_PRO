@@ -55,8 +55,8 @@ HW46: 46. Postgres Backup + Replication
 Final project
 
 
-### :trophy:   Сертификат - Skillbox - Java-разработчик
-![Изображение]([https://github.com/andruhes/My-certificates/blob/main/%D0%A1%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%20-%20Skillbox%20-%20Java-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA.jpg](https://github.com/andruhes/Lin_PRO/blob/main/linpro.jpg) "Сертификат - OTUS - Administrator Linux. Professional")
+### :trophy:   Сертификат - OTUS - Administrator Linux. Professional
+![Изображение](https://github.com/andruhes/Lin_PRO/blob/main/linpro.jpg "Сертификат - OTUS - Administrator Linux. Professional")
 
 
 
